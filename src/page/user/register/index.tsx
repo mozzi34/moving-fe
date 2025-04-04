@@ -86,9 +86,7 @@ export default function UserRegisterPage() {
   const profileRegister = async () => {
     if (
       validation.region &&
-      validation.image &&
       !!values.region &&
-      values.image &&
       (!!values.small || !!values.house || !!values.office)
     ) {
       const keys = Object.keys(values) as [];
@@ -150,9 +148,7 @@ export default function UserRegisterPage() {
             text={isLoginPending ? 'loading...' : '시작하기'}
             validation={
               validation.region &&
-              validation.image &&
               !!values.region &&
-              !!values.image &&
               (!!values.small || !!values.house || !!values.office)
             }
           />
