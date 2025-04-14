@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import style from './RendingLayout.module.css';
 
-import { useContext, useState, useRef, useEffect } from 'react';
+import { useContext } from 'react';
 
 import {
   UserMenuModal,
@@ -12,47 +12,16 @@ import { DriverNav, NonLoginNav, UserNav } from '../components/nav/Nav';
 import { useMedia } from '../lib/function/useMediaQuery';
 import { AuthContext } from '../context/authContext';
 import { HelmetProvider } from 'react-helmet-async';
+import { useNavModal } from '../lib/function/useNavModal';
 
 export default function RendingLayout() {
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const profileRef = useRef<HTMLDivElement | null>(null);
-  const notificationRef = useRef<HTMLDivElement | null>(null);
-  const [activeModal, setActiveModal] = useState<
-    null | 'menu' | 'profile' | 'notification'
-  >(null);
   const { pc } = useMedia();
 
   const {
     userValue: { user, isPending },
   } = useContext(AuthContext);
 
-  const toggleModal = (
-    modalType: 'menu' | 'profile' | 'notification' | null,
-  ) => {
-    setActiveModal((prev) => (prev === modalType ? null : modalType));
-  };
-
-  const handleOutsideClick = (e: any) => {
-    if (
-      (activeModal === 'menu' &&
-        menuRef.current &&
-        !menuRef.current.contains(e.target)) ||
-      (activeModal === 'profile' &&
-        profileRef.current &&
-        !profileRef.current.contains(e.target)) ||
-      (activeModal === 'notification' &&
-        notificationRef.current &&
-        !notificationRef.current.contains(e.target))
-    ) {
-      setActiveModal(null);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleOutsideClick);
-
-    return () => document.removeEventListener('click', handleOutsideClick);
-  }, [activeModal]);
+  const { refs, activeModal, toggleModal } = useNavModal();
 
   return (
     <>
@@ -62,9 +31,9 @@ export default function RendingLayout() {
             {!isPending && user ? (
               user.userType === 'CUSTOMER' ? (
                 <UserNav
-                  menuRef={menuRef}
-                  profileRef={profileRef}
-                  notificationRef={notificationRef}
+                  menuRef={refs.menuRef}
+                  profileRef={refs.profileRef}
+                  notificationRef={refs.notificationRef}
                   modalController={() => toggleModal('menu')}
                   profileController={() => toggleModal('profile')}
                   notificationController={() => toggleModal('notification')}
@@ -73,9 +42,9 @@ export default function RendingLayout() {
                 />
               ) : (
                 <DriverNav
-                  menuRef={menuRef}
-                  profileRef={profileRef}
-                  notificationRef={notificationRef}
+                  menuRef={refs.menuRef}
+                  profileRef={refs.profileRef}
+                  notificationRef={refs.notificationRef}
                   modalController={() => toggleModal('menu')}
                   profileController={() => toggleModal('profile')}
                   notificationController={() => toggleModal('notification')}
@@ -85,7 +54,7 @@ export default function RendingLayout() {
               )
             ) : (
               <NonLoginNav
-                menuRef={menuRef}
+                menuRef={refs.menuRef}
                 modalController={() => toggleModal('menu')}
               />
             )}
