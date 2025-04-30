@@ -226,7 +226,7 @@
     <th style="width: 350px; height: 100px;">모바일 버전</th>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/184efa5f-92a5-4caf-aa47-06ce2ad94bda" alt="데스크탑 & 태블릿 버전 이미지"></td>
+    <td><img src="https://github.com/user-attachments/assets/2279d18c-eef8-43fa-81ef-eb60f96f27fa" alt="데스크탑 & 태블릿 버전 이미지"></td>
     <td><img src="https://github.com/user-attachments/assets/a9c03264-6118-462b-9ada-b1acc7194939" alt="모바일 버전 이미지"></td>
   </tr>
 </table>
