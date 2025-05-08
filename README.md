@@ -164,8 +164,8 @@
 - 🔗 **[칩(Chip) 컴포넌트](https://github.com/mozzi34/moving-fe/blob/main/src/components/chip/Chip.tsx)**  
   : **소형 이사**, **가정 이사**, **사무실 이사**, **지정 견적 요청**, **확정 견적** 등 서비스 상태와 유형을 직관적으로 보여주는 컴포넌트.
 
-- 🔗 **[Navbar Modal 통합](https://github.com/mozzi34/moving-fe/blob/main/src/lib/function/useNavModal.tsx)**
-- : 소비자와 기사님의 **메뉴, 프로필, 알림 모달**을 **단일 커스텀 훅으로 통합 관리**하며, 바깥 영역 클릭 시 자동으로 닫히는 로직도 포함.
+- 🔗 **[Navbar Modal 통합](https://github.com/mozzi34/moving-fe/blob/main/src/lib/function/useNavModal.tsx)**  
+  : 소비자와 기사님의 **메뉴, 프로필, 알림 모달**을 **단일 커스텀 훅으로 통합 관리**하며, 바깥 영역 클릭 시 자동으로 닫히는 로직도 포함.
 
 </br></br>
 ✨ **[소비자 견적 요청 페이지](https://github.com/mozzi34/moving-fe/blob/main/src/page/user/costCall/index.tsx)**  
