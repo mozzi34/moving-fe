@@ -283,7 +283,7 @@
 
 <br>
 
-## <span id="tree">🌱 7. 프로젝트 구조</span<
+## <span id="tree">🌱 7. 프로젝트 구조</span>
 
 - **public/**: 정적 자산 디렉터리.
   - **assets/**
